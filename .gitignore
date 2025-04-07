@@ -1,0 +1,9 @@
+/target
+**/*.rs.bk
+Cargo.lock
+*.pdb
+.idea/
+.vscode/
+*.iml
+posted_news.txt
+scraper-app.json
