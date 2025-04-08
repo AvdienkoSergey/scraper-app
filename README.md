@@ -48,8 +48,8 @@ cargo build --release
   "news_feed_url": "https://giookn.nso.ru/page/198?page=2",
   "news_item_selector": "td > a",
   "title_regex_pattern": "(?i).*Новосибирский\\s+Академгородок.*",
-  "telegram_bot_token": "8020740850:AAHgM6AXbC8McrG77FIVOzUplu4TA3YmLxM",
-  "telegram_chat_id": -1002297531159,
+  "telegram_bot_token": "YOUR_TELEGRAM_BOT_TOKEN",
+  "telegram_chat_id": 0,
   "posted_file": "posted_news.txt",
   "posted_interval": 3600,
   "posted_template": "<b>{{title}}</b>\n\n<a href=\"{{url}}\">Читать дальше</a>"
