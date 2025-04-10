@@ -1,6 +1,6 @@
 [package]
 name = "scraper-app"
-version = "0.1.0"
+version = "0.2.0"
 edition = "2021"
 authors = ["AvdienkoSA <avdienko.s@gmail.com>"]
 description = "Scraper приложение для сбора данных с веб-сайтов."
