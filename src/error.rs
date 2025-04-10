@@ -1,27 +1,25 @@
-use std::error::Error;
-use std::fmt;
+use thiserror::Error;
 
-#[derive(Debug)]
+#[derive(Debug, Error)]
 pub enum AppError {
-    ConfigReadError(String, String),
-    ConfigParseError(String, String),
-    FeedProcessingError(String),
+    #[error("Telegram error: {0}")]
     TelegramError(String),
-}
+    
+    #[error("Configuration error: {0}")]
+    ConfigError(String),
+    
+    #[error("Network error: {0}")]
+    NetworkError(#[from] reqwest::Error),
+    
+    #[error("Telegram API error: {0}")]
+    TelegramApiError(#[from] teloxide::RequestError),
 
-impl fmt::Display for AppError {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
-        match self {
-            AppError::ConfigReadError(filename, err) =>
-                write!(f, "Failed to read config file '{}': {}", filename, err),
-            AppError::ConfigParseError(filename, err) =>
-                write!(f, "Error parsing config file '{}': {}", filename, err),
-            AppError::FeedProcessingError(msg) =>
-                write!(f, "Feed processing error: {}", msg),
-            AppError::TelegramError(msg) =>
-                write!(f, "Telegram API error: {}", msg),
-        }
-    }
-}
+    #[error("Config read error: {0}")]
+    ConfigReadError(String, String),
 
-impl Error for AppError {}
+    #[error("Config parse error: {0}")]
+    ConfigParseError(String, String),
+
+    #[error("Feed processing error: {0}")]
+    FeedProcessingError(String)
+}

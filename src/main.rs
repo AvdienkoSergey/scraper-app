@@ -3,14 +3,15 @@ mod utils;
 mod error;
 mod processor;
 mod bot;
-mod test;
+mod diagnostics;
+mod library;
 
 use std::env;
 use std::thread;
 use std::time::Duration;
 use crate::config::{load_config, load_config_with_retry, config_validate};
 use crate::processor::process_feed_async;
-use crate::test::run_test_mode;
+use crate::diagnostics::run_test_mode;
 
 /// Main function.
 /// On first run, all news matching the regex pattern are reposted.
