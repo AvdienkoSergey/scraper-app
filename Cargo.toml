@@ -2,6 +2,11 @@
 name = "scraper-app"
 version = "0.1.0"
 edition = "2021"
+authors = ["AvdienkoSA <avdienko.s@gmail.com>"]
+description = "Scraper приложение для сбора данных с веб-сайтов."
+license = "MIT"
+homepage = "https://github.com/AvdienkoSergey/scraper-app"
+repository = "https://github.com/AvdienkoSergey/scraper-app"
 
 [dependencies]
 regex = "1.11.1"
@@ -10,7 +15,7 @@ scraper = "0.23.1"
 tokio = { version = "1.0.0", features = ["rt", "rt-multi-thread", "macros"] }
 serde = { version = "1.0.219", features = ["derive"] }
 serde_json = "1.0.140"
-teloxide = { version = "0.12", features = ["macros"] }
+teloxide = { version = "0.12.2", features = ["macros"] }
 chrono = "0.4.40"
 
 [dev-dependencies]
@@ -32,3 +37,9 @@ strip = true
 panic = "abort"
 overflow-checks = false
 debug = false
+
+[package.metadata.release]
+push = true
+push-remote = "origin"
+sign-commit = false
+sign-tag = false
